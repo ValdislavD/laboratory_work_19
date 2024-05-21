@@ -161,3 +161,62 @@ void filterWordsContainingPattern(const char *inputFilePath, const char *outputF
     fclose(inputFile);
     fclose(outputFile);
 }
+// Функция для проверки, является ли символ буквой
+int is_letter(char c) {
+    return isalpha(c);
+}
+
+// Функция для нахождения самого длинного слова в строке
+char* longest_word(char* str) {
+    char* longest = NULL;
+    char* word = strtok(str, " ");
+    int max_length = 0;
+
+    while (word != NULL) {
+        int len = strlen(word);
+        if (len > max_length) {
+            max_length = len;
+            longest = word;
+        }
+        word = strtok(NULL, " ");
+    }
+
+    return longest;
+}
+
+// Функция для обработки файла
+void process_file(const char* input_file, const char* output_file) {
+    FILE* infile = fopen(input_file, "r");
+    if (infile == NULL) {
+        printf("Не удается открыть файл %s\n", input_file);
+        return;
+    }
+
+    FILE* outfile = fopen(output_file, "w");
+    if (outfile == NULL) {
+        printf("Не удается создать файл %s\n", output_file);
+        fclose(infile);
+        return;
+    }
+
+    char line[1000]; // Предполагаем максимальную длину строки 1000 символов
+    while (fgets(line, sizeof(line), infile)) {
+        char cleaned_line[1000] = "";
+        int i = 0;
+        for (int j = 0; line[j] != '\0'; j++) {
+            if (is_letter(line[j])) {
+                cleaned_line[i++] = line[j];
+            } else if (i > 0 && cleaned_line[i - 1] != ' ') {
+                cleaned_line[i++] = ' ';
+            }
+        }
+        cleaned_line[i] = '\0';
+        char* longest = longest_word(cleaned_line);
+        if (longest != NULL) {
+            fprintf(outfile, "%s\n", longest);
+        }
+    }
+
+    fclose(infile);
+    fclose(outfile);
+}

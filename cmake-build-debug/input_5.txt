@@ -1,0 +1,4 @@
+The quick brown fox jumps over the lazy dog.
+This is a test file for the longest word extraction.
+Programming is fun and challenging.
+I love OpenAI's language models.

@@ -23,4 +23,6 @@ int containsPattern(const char *word, const char *pattern);
 // Функция для фильтрации слов, содержащих определенный шаблон, из входного файла в выходной
 void filterWordsContainingPattern(const char *inputFilePath, const char *outputFilePath, const char *pattern);
 
+void process_file(const char* input_file, const char* output_file);
+
 #endif //UNTITLED26_FILE__H

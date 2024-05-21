@@ -11,4 +11,6 @@ add_executable(untitled26 task_1.c
         task_3.c
         task_functions_3.c
         task_4.c
-        test_function_4.c)
+        test_function_4.c
+        task_5.c
+        test_function_5.c)
