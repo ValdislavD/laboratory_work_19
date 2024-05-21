@@ -17,4 +17,10 @@ void convertFixedToFloating(const char *inputFilePath, const char *outputFilePat
 
 void calculateExpressionAndAppendResult(const char *filePath);
 
+//Функция для проверки того, содержит ли слово шаблон
+int containsPattern(const char *word, const char *pattern);
+
+// Функция для фильтрации слов, содержащих определенный шаблон, из входного файла в выходной
+void filterWordsContainingPattern(const char *inputFilePath, const char *outputFilePath, const char *pattern);
+
 #endif //UNTITLED26_FILE__H

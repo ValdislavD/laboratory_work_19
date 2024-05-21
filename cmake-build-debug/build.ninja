@@ -91,6 +91,18 @@ build CMakeFiles/untitled26.dir/task_functions_3.c.obj: C_COMPILER__untitled26_u
   OBJECT_DIR = CMakeFiles\untitled26.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled26.dir
 
+build CMakeFiles/untitled26.dir/task_4.c.obj: C_COMPILER__untitled26_unscanned_Debug C$:/Users/vladi/CLionProjects/untitled26/task_4.c || cmake_object_order_depends_target_untitled26
+  DEP_FILE = CMakeFiles\untitled26.dir\task_4.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled26.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled26.dir
+
+build CMakeFiles/untitled26.dir/task_function_4.c.obj: C_COMPILER__untitled26_unscanned_Debug C$:/Users/vladi/CLionProjects/untitled26/task_function_4.c || cmake_object_order_depends_target_untitled26
+  DEP_FILE = CMakeFiles\untitled26.dir\task_function_4.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled26.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled26.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled26
@@ -99,7 +111,7 @@ build CMakeFiles/untitled26.dir/task_functions_3.c.obj: C_COMPILER__untitled26_u
 #############################################
 # Link the executable untitled26.exe
 
-build untitled26.exe: C_EXECUTABLE_LINKER__untitled26_Debug CMakeFiles/untitled26.dir/task_1.c.obj CMakeFiles/untitled26.dir/working_with_files/file_.c.obj CMakeFiles/untitled26.dir/test_functions.c.obj CMakeFiles/untitled26.dir/task_2.c.obj CMakeFiles/untitled26.dir/test_functions_2.c.obj CMakeFiles/untitled26.dir/task_3.c.obj CMakeFiles/untitled26.dir/task_functions_3.c.obj
+build untitled26.exe: C_EXECUTABLE_LINKER__untitled26_Debug CMakeFiles/untitled26.dir/task_1.c.obj CMakeFiles/untitled26.dir/working_with_files/file_.c.obj CMakeFiles/untitled26.dir/test_functions.c.obj CMakeFiles/untitled26.dir/task_2.c.obj CMakeFiles/untitled26.dir/test_functions_2.c.obj CMakeFiles/untitled26.dir/task_3.c.obj CMakeFiles/untitled26.dir/task_functions_3.c.obj CMakeFiles/untitled26.dir/task_4.c.obj CMakeFiles/untitled26.dir/task_function_4.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled26.dir

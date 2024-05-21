@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 #include <windows.h>
 #include "file_.h"
 
@@ -128,4 +129,35 @@ void calculateExpressionAndAppendResult(const char *filePath) {
     fputs(buffer, file);
 
     fclose(file);
+}
+
+int containsPattern(const char *word, const char *pattern) {
+    return strstr(word, pattern) != NULL;
+}
+
+void filterWordsContainingPattern(const char *inputFilePath, const char *outputFilePath, const char *pattern) {
+    FILE *inputFile = fopen(inputFilePath, "r");
+    if (inputFile == NULL) {
+        SetConsoleOutputCP(CP_UTF8);
+        fprintf(stderr, "Ошибка при открытии входного файла.\n");
+        exit(1);
+    }
+
+    FILE *outputFile = fopen(outputFilePath, "w");
+    if (outputFile == NULL) {
+        SetConsoleOutputCP(CP_UTF8);
+        fprintf(stderr, "Ошибка при открытии выходного файла.\n");
+        fclose(inputFile);
+        exit(1);
+    }
+
+    char word[256];
+    while (fscanf(inputFile, "%255s", word) == 1) {
+        if (containsPattern(word, pattern)) {
+            fprintf(outputFile, "%s\n", word);
+        }
+    }
+
+    fclose(inputFile);
+    fclose(outputFile);
 }
