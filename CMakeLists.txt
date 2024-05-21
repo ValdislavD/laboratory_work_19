@@ -7,4 +7,6 @@ add_executable(untitled26 task_1.c
         working_with_files/file_.c
         test_functions.c
         task_2.c
-        test_functions_2.c)
+        test_functions_2.c
+        task_3.c
+        task_functions_3.c)

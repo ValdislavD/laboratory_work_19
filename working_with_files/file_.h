@@ -15,4 +15,6 @@ void freeMatrix(int **matrix, int n);
 
 void convertFixedToFloating(const char *inputFilePath, const char *outputFilePath);
 
+void calculateExpressionAndAppendResult(const char *filePath);
+
 #endif //UNTITLED26_FILE__H

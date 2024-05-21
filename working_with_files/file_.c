@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <windows.h>
 #include "file_.h"
 
 int** readMatrix(FILE *file, int n) {
@@ -49,4 +51,81 @@ void convertFixedToFloating(const char *inputFilePath, const char *outputFilePat
 
     fclose(inputFile);
     fclose(outputFile);
+}
+
+int evaluateExpression(const char *expression, int *result) {
+    int operand1 = 0, operand2 = 0;
+    char operator = 0;
+    int numOperands = 0;
+
+    while (*expression) {
+        if (isdigit(*expression)) {
+            if (numOperands == 0) {
+                operand1 = *expression - '0';
+                numOperands++;
+            } else if (numOperands == 1) {
+                operand2 = *expression - '0';
+                numOperands++;
+            } else {
+                return -1; // Ошибка: слишком много операндов
+            }
+        } else if (*expression == '+' || *expression == '-' || *expression == '*' || *expression == '/') {
+            if (operator == 0) {
+                operator = *expression;
+            } else {
+                return -1; // Ошибка: слишком много операторов
+            }
+        }
+        expression++;
+    }
+
+    if (numOperands < 2) {
+        return -1; // Ошибка: недостаточно операндов
+    }
+
+    switch (operator) {
+        case '+': *result = operand1 + operand2; break;
+        case '-': *result = operand1 - operand2; break;
+        case '*': *result = operand1 * operand2; break;
+        case '/': *result = operand1 / operand2; break;
+        default: return -1; // Ошибка: неизвестный оператор
+    }
+
+    return 0; // Успешно
+}
+
+void calculateExpressionAndAppendResult(const char *filePath) {
+    FILE *file = fopen(filePath, "r+");
+    if (file == NULL) {
+        SetConsoleOutputCP(CP_UTF8);
+        fprintf(stderr, "Ошибка открытия файла.\n");
+        exit(1);
+    }
+
+    char expression[100];
+    char buffer[10000] = {0};  // buffer to store the entire content of the file
+    char *buf_ptr = buffer;
+    long offset = 0;
+
+    while (fgets(expression, sizeof(expression), file) != NULL) {
+        // Remove the newline character at the end of the expression
+        size_t len = strlen(expression);
+        if (len > 0 && expression[len - 1] == '\n') {
+            expression[len - 1] = '\0';
+        }
+
+        int result;
+        if (evaluateExpression(expression, &result) == 0) {
+            buf_ptr += sprintf(buf_ptr, "%s\n%d\n", expression, result);
+        } else {
+            buf_ptr += sprintf(buf_ptr, "%s\n", expression);
+            SetConsoleOutputCP(CP_UTF8);
+            fprintf(stderr, "Ошибка вычисления выражения: %s\n", expression);
+        }
+    }
+
+    freopen(filePath, "w", file);
+    fputs(buffer, file);
+
+    fclose(file);
 }

@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "working_with_files/file_.h"
@@ -67,4 +67,4 @@ void testConvertFixedToFloating() {
 int main() {
     testConvertFixedToFloating();
     return 0;
-}
+}*/
