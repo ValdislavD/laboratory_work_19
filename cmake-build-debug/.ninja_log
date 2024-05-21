@@ -1,0 +1,12 @@
+# ninja log v5
+2	63	7378341703689412	CMakeFiles/untitled26.dir/main.c.obj	83af6d019fd13317
+75	145	7379417395745945	untitled26.exe	4dc127ea91f730e2
+1	74	7379417395060801	CMakeFiles/untitled26.dir/task_1.c.obj	ece2d8176c5ef30
+2	73	7379084280356276	CMakeFiles/untitled26.dir/working_with_files/file_.c.obj	351a3777306782ef
+5	53	7379417394840799	CMakeFiles/untitled26.dir/test_functions.c.obj	d8c8b5fde9e6fe4f
+2	52	7379454396684770	CMakeFiles/untitled26.dir/task_1.c.obj	ece2d8176c5ef30
+8	74	7379454396864806	CMakeFiles/untitled26.dir/task_2.c.obj	cb6ae19cfb064693
+5	99	7379454397163046	CMakeFiles/untitled26.dir/working_with_files/file_.c.obj	351a3777306782ef
+10	100	7379454397173042	CMakeFiles/untitled26.dir/test_functions_2.c.obj	648a73975cf3db6e
+2	52	7379454552197134	CMakeFiles/untitled26.dir/task_2.c.obj	cb6ae19cfb064693
+53	118	7379454552844338	untitled26.exe	8c2dccbdc2f30740
