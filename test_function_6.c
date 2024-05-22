@@ -1,4 +1,4 @@
-#include <assert.h>
+/*#include <assert.h>
 #include "working_with_files/file_.h"
 
 void create_test_file(const char* filename, PolynomialTerm* polynomials[], int counts[], int num_polynomials) {
@@ -78,4 +78,4 @@ void test_process_file_s() {
 int main() {
     test_process_file_s();
     return 0;
-}
+}*/

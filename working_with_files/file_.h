@@ -38,4 +38,6 @@ int is_root(PolynomialTerm* terms, int count, double x);
 
 void process_file_s(const char* input_filename, const char* output_filename, double x);
 
+void rearrange_integers(const char* filename);
+
 #endif //UNTITLED26_FILE__H

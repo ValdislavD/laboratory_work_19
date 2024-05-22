@@ -272,3 +272,40 @@ void process_file_s(const char* input_filename, const char* output_filename, dou
     fclose(input_file);
     fclose(output_file);
 }
+
+void read_integers(const char* filename, int** positive, int* pos_count, int** negative, int* neg_count);
+void write_integers(const char* filename, int* integers, int count);
+
+void rearrange_integers(const char* filename) {
+    FILE* file = fopen(filename, "rb");
+    if (!file) {
+        perror("Failed to open file");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE* new_file = fopen("rearranged_integers.bin", "wb");
+    if (!new_file) {
+        perror("Failed to create new file");
+        exit(EXIT_FAILURE);
+    }
+
+    int num;
+    while (fread(&num, sizeof(int), 1, file) == 1) {
+        if (num >= 0) {
+            fwrite(&num, sizeof(int), 1, new_file);
+        }
+    }
+    fseek(file, 0, SEEK_SET); // Вернем указатель файла в начало
+    while (fread(&num, sizeof(int), 1, file) == 1) {
+        if (num < 0) {
+            fwrite(&num, sizeof(int), 1, new_file);
+        }
+    }
+
+    fclose(file);
+    fclose(new_file);
+
+    remove(filename); // Удаляем исходный файл
+    rename("rearranged_integers.bin", filename); // Переименовываем новый файл
+}
+
