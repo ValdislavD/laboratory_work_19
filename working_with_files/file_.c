@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <math.h>
 #include <windows.h>
 #include "file_.h"
 
@@ -219,4 +220,55 @@ void process_file(const char* input_file, const char* output_file) {
 
     fclose(infile);
     fclose(outfile);
+}
+
+void read_polynomial(FILE* file, PolynomialTerm** terms, int* count) {
+    fread(count, sizeof(int), 1, file);
+    *terms = (PolynomialTerm*)malloc((*count) * sizeof(PolynomialTerm));
+    fread(*terms, sizeof(PolynomialTerm), *count, file);
+}
+
+void write_polynomial(FILE* file, PolynomialTerm* terms, int count) {
+    fwrite(&count, sizeof(int), 1, file);
+    fwrite(terms, sizeof(PolynomialTerm), count, file);
+}
+
+int is_root(PolynomialTerm* terms, int count, double x) {
+    double result = 0.0;
+    for (int i = 0; i < count; ++i) {
+        result += terms[i].coefficient * pow(x, terms[i].degree);
+    }
+    return result == 0.0;
+}
+
+void process_file_s(const char* input_filename, const char* output_filename, double x) {
+    FILE* input_file = fopen(input_filename, "rb");
+    if (!input_file) {
+        perror("Failed to open input file");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE* output_file = fopen(output_filename, "wb");
+    if (!output_file) {
+        perror("Failed to open output file");
+        fclose(input_file);
+        exit(EXIT_FAILURE);
+    }
+
+    PolynomialTerm* terms = NULL;
+    int count = 0;
+
+    while (fread(&count, sizeof(int), 1, input_file) == 1) {
+        terms = (PolynomialTerm*)malloc(count * sizeof(PolynomialTerm));
+        fread(terms, sizeof(PolynomialTerm), count, input_file);
+
+        if (!is_root(terms, count, x)) {
+            write_polynomial(output_file, terms, count);
+        }
+
+        free(terms);
+    }
+
+    fclose(input_file);
+    fclose(output_file);
 }

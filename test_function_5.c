@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <assert.h>
 #include <string.h>
 #include "working_with_files/file_.h"
@@ -93,3 +93,4 @@ int main() {
     test_process_file();
     return 0;
 }
+*/

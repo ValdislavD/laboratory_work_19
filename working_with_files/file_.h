@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct {
+    int degree;
+    double coefficient;
+} PolynomialTerm;
+
 // Функция для чтения матрицы из файла
 int** readMatrix(FILE *file, int n);
 
@@ -24,5 +29,13 @@ int containsPattern(const char *word, const char *pattern);
 void filterWordsContainingPattern(const char *inputFilePath, const char *outputFilePath, const char *pattern);
 
 void process_file(const char* input_file, const char* output_file);
+
+void read_polynomial(FILE* file, PolynomialTerm** terms, int* count);
+
+void write_polynomial(FILE* file, PolynomialTerm* terms, int count);
+
+int is_root(PolynomialTerm* terms, int count, double x);
+
+void process_file_s(const char* input_filename, const char* output_filename, double x);
 
 #endif //UNTITLED26_FILE__H

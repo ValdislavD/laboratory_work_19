@@ -1,22 +1,14 @@
 # ninja log v5
 2	63	7378341703689412	CMakeFiles/untitled26.dir/main.c.obj	83af6d019fd13317
-3209	3444	7379949973515080	untitled26.exe	43425c7dfad30278
+74	144	7380180300273729	untitled26.exe	6dbbcb6238316c66
 2	52	7379454396684770	CMakeFiles/untitled26.dir/task_1.c.obj	ece2d8176c5ef30
 9	55	7380126278884093	CMakeFiles/untitled26.dir/task_functions_3.c.obj	668df4440a5de2e5
-2	821	7380126286557653	CMakeFiles/untitled26.dir/working_with_files/file_.c.obj	351a3777306782ef
+2	807	7380178244501557	CMakeFiles/untitled26.dir/working_with_files/file_.c.obj	351a3777306782ef
 5	53	7379417394840799	CMakeFiles/untitled26.dir/test_functions.c.obj	d8c8b5fde9e6fe4f
 2	52	7379454552197134	CMakeFiles/untitled26.dir/task_2.c.obj	cb6ae19cfb064693
 10	112	7379949940247901	CMakeFiles/untitled26.dir/test_functions_2.c.obj	648a73975cf3db6e
 7	54	7380126278894064	CMakeFiles/untitled26.dir/task_3.c.obj	b0119f978aec81bb
 23	91	7380126279046931	CMakeFiles/untitled26.dir/task_4.c.obj	98ddb19624af40e1
-14	99	7380126279237785	CMakeFiles/untitled26.dir/test_function_4.c.obj	86638f1537d0e15a
-20	831	7380126286659479	CMakeFiles/untitled26.dir/task_5.c.obj	66505db7ebb6bbdd
-8	49	7380178236917155	CMakeFiles/untitled26.dir/task_5.c.obj	66505db7ebb6bbdd
 5	53	7380178236956770	CMakeFiles/untitled26.dir/test_function_4.c.obj	86638f1537d0e15a
-10	86	7380178237287620	CMakeFiles/untitled26.dir/test_function_5.c.obj	da013bb78169e4a1
-2	807	7380178244501557	CMakeFiles/untitled26.dir/working_with_files/file_.c.obj	351a3777306782ef
-808	880	7380178245190675	untitled26.exe	6dbbcb6238316c66
-3	81	7380179887845142	CMakeFiles/untitled26.dir/test_function_5.c.obj	da013bb78169e4a1
-81	146	7380179888476766	untitled26.exe	6dbbcb6238316c66
+8	49	7380178236917155	CMakeFiles/untitled26.dir/task_5.c.obj	66505db7ebb6bbdd
 2	74	7380180299611280	CMakeFiles/untitled26.dir/test_function_5.c.obj	da013bb78169e4a1
-74	144	7380180300273729	untitled26.exe	6dbbcb6238316c66
